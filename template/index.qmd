@@ -1,0 +1,16 @@
+---
+title: "A Report"
+subtitle: "Interactive, tested, citable"
+toc: false
+---
+
+This is a report in the *quadrant* format: a Quarto book whose equations
+link to the code that evaluates them, whose quantitative claims link to the
+tests that pin them, and whose experiments open in a laboratory that runs in
+the browser. Replace this page, the chapter, the core and the laboratory with
+your own; keep the conventions (see the [status appendix](chapters/status.qmd)).
+
+<div class="qd-cta">
+<a class="btn btn-primary btn-lg" href="chapters/01-growth.qmd">Start reading</a>
+<a class="btn btn-outline-secondary btn-lg" href="app/index.html">Open the laboratory</a>
+</div>

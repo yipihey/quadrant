@@ -1,0 +1,76 @@
+project:
+  type: book
+  output-dir: _site
+  pre-render:
+    - scripts/build_info.py
+    - scripts/brand_to_css.py
+  # copied verbatim into _site: the standalone laboratory with its WebAssembly package, and the API documentation
+  resources:
+    - app/**
+    - api/**
+
+# quadrant: where the provenance shortcodes look things up
+quadrant:
+  crate: report_core
+  api: api
+  tests: core/tests
+  app: app/index.html
+
+book:
+  title: "A Report"
+  subtitle: "Interactive, tested, citable"
+  author: "Your Name"
+  date: today
+  site-url: https://OWNER.github.io/REPO/
+  repo-url: https://github.com/OWNER/REPO
+  repo-branch: main
+  repo-actions: [edit, source, issue]
+  search: true
+  navbar:
+    right:
+      - text: "Laboratory"
+        href: app/index.html
+      - icon: github
+        href: https://github.com/OWNER/REPO
+        aria-label: GitHub
+  sidebar:
+    style: docked
+  chapters:
+    - index.qmd
+    - chapters/01-growth.qmd
+    - chapters/references.qmd
+  appendices:
+    - chapters/notation.qmd
+    - chapters/status.qmd
+  page-footer:
+    left: "A Report · MIT License"
+    right: "build {{< var build.sha >}} · {{< var build.date >}}"
+
+bibliography: chapters/references.bib
+
+citation:
+  type: book
+  author: "Your Name"
+  issued: 2026
+  url: https://OWNER.github.io/REPO/
+appendix-cite-as: [display, bibtex]
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css:
+      - app/css/quadrant.css
+    toc: true
+    number-sections: true
+    number-depth: 2
+    code-fold: true
+    code-tools: true
+    html-math-method: katex
+    include-in-header: includes/head.html
+    date-modified: last-modified
+    comments:
+      hypothesis:
+        theme: clean
+        openSidebar: false

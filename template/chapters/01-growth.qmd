@@ -1,0 +1,48 @@
+---
+title: "An example chapter: logistic growth"
+---
+
+## The equation
+
+A population $x(t)$ that grows at rate $r$ and saturates at the carrying
+capacity $K$ obeys
+
+$$
+\frac{dx}{dt} = r\,x\left(1 - \frac{x}{K}\right),
+$$ {#eq-logistic-ode}
+
+whose solution for $x(0) = x_0$ is the logistic function{{< src logistic >}}
+
+$$
+x(t) = \frac{K}{1 + (K/x_0 - 1)\,e^{-rt}} .
+$$ {#eq-logistic}
+
+The core evaluates @eq-logistic directly; that it satisfies
+@eq-logistic-ode is checked numerically to $10^{-7}$
+{{< test logistic_solves_the_ode "ODE residual" >}}, and the limits
+$x(0) = x_0$ and $x(\infty) = K$ are checked as well
+{{< test logistic_limits "limits" >}}. The construction goes back to
+@verhulst1838.
+
+Two conventions of the format are visible in the paragraph above. The
+superscript ⟨logistic⟩ links to the API documentation of the function that
+evaluates the equation, and the ✓ badges link to the tests. Neither
+interrupts the reading, and `make check` fails the build if either target
+disappears.
+
+## Try it
+
+```{=html}
+<div class="qd-widget" data-widget="curve"></div>
+<script type="module" src="../app/js/widgets.js"></script>
+```
+
+::: {.callout-tip title="Try it"}
+Drag the growth rate and the carrying capacity. The plot zooms with the
+wheel, pans by dragging, resets on a double click, and the toolbar switches
+the axes between linear and logarithmic scaling and downloads the curve as
+SVG or CSV. The same experiment opens in the laboratory, where every
+control is encoded in the address bar so that the link reproduces it:
+
+{{< lab "r=2&k=3" "Open in the lab with r = 2, K = 3" >}}
+:::

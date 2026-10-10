@@ -1,0 +1,37 @@
+---
+title: "Status, reproducibility and how to cite"
+---
+
+## This build
+
+Rendered from commit [{{< var build.sha >}}](https://github.com/OWNER/REPO/commit/{{< var build.commit >}})
+of {{< var build.date >}} (rendered {{< var build.rendered >}}) by the
+[publish workflow](https://github.com/OWNER/REPO/actions/workflows/publish.yml).
+
+## What is verified, and where
+
+- **The numerical core** (`core/`, Rust compiled to WebAssembly) has a
+  validation suite that `cargo test --release` runs on every push. Every
+  claim in the text that rests on one of its tests carries a ✓ badge
+  linking to the test.
+- **The API documentation** of the core is published with the report at
+  [api/](../api/report_core/index.html); the ⟨name⟩ marks in the text link
+  to the function that evaluates the equation next to them.
+- **Citations** are verified against the field's literature index before
+  they enter the bibliography.
+
+## How to cite
+
+The repository carries a `CITATION.cff`; GitHub shows it as "Cite this
+repository". Until a DOI is minted, cite the repository and the commit above.
+
+## Sharing a view of the laboratory
+
+Every state of the laboratory is encoded in the address bar (the part after
+`#`), so copying the URL shares the exact experiment; the *copy link* button
+does this. Plots download as SVG or CSV from their toolbars.
+
+## Annotating and discussing
+
+Pages carry the Hypothesis sidebar: select any passage to annotate it.
+Corrections are welcome as issues; every page has an *Edit this page* link.

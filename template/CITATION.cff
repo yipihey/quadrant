@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this report, please cite it as below."
+title: "A Report"
+type: software
+authors:
+  - family-names: Name
+    given-names: Your
+repository-code: "https://github.com/OWNER/REPO"
+url: "https://OWNER.github.io/REPO/"
+license: MIT
+date-released: 2026-01-01

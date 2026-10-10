@@ -1,0 +1,18 @@
+---
+title: "Notation and conventions"
+---
+
+List every symbol, unit, sign convention and clock the text relies on, with
+the equation where it is fixed. Readers and agents consult this page before
+anything else.
+
+| Symbol | Meaning | Where it is fixed |
+|---|---|---|
+| $x(t)$ | population | @eq-logistic-ode |
+| $r$ | growth rate | @eq-logistic-ode |
+| $K$ | carrying capacity | @eq-logistic-ode |
+| $x_0$ | initial value | @eq-logistic |
+
+**Estimators and windows.** State here what every measured quantity in the
+laboratory carries (smoothing, windows, normalisations) so that comparisons
+between methods are read correctly.
