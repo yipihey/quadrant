@@ -148,6 +148,10 @@ local function test(args, kwargs, meta)
   if not file then quarto.log.warning("quadrant test: no test named " .. name .. " under " .. dir); file = dir end
   local repo = repo_url(meta)
   local branch = meta["repo-branch"] and pandoc.utils.stringify(meta["repo-branch"]) or (meta.book and meta.book["repo-branch"] and pandoc.utils.stringify(meta.book["repo-branch"])) or "main"
+  -- repo-subdir (Quarto's own key for projects that live in a subdirectory of the repository)
+  local sub = meta["repo-subdir"] and pandoc.utils.stringify(meta["repo-subdir"]) or (meta.book and meta.book["repo-subdir"] and pandoc.utils.stringify(meta.book["repo-subdir"])) or ""
+  sub = sub:gsub("^/", ""):gsub("/$", "")
+  if sub ~= "" then file = sub .. "/" .. file end
   local href = repo .. "/blob/" .. branch .. "/" .. file .. "#:~:text=fn%20" .. name
   local title = "Verified by the test `" .. name .. "` in " .. file
   return pandoc.RawInline("html", '<a class="qd-test" href="' .. href .. '" title="' .. title .. '">' .. label .. '</a>')

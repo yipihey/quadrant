@@ -35,7 +35,11 @@ jobs:
         with:
           version: 1.10.19
       - name: Create a report from the template
-        run: sh scripts/new-report.sh ../demo ${{ github.repository }}
+        run: |
+          sh scripts/new-report.sh ../demo ${{ github.repository }}
+          # the demo's sources live under template/ of this repository, and its workflow is validate.yml
+          sed -i 's|^  repo-branch: main$|  repo-branch: main\n  repo-subdir: template|' ../demo/_quarto.yml
+          sed -i 's|workflows/publish.yml|workflows/validate.yml|' ../demo/chapters/status.qmd
       - name: Test, build and document the core
         working-directory: ../demo
         run: |
