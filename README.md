@@ -24,7 +24,7 @@ Start a new report:
 
 ```sh
 git clone https://github.com/yipihey/quadrant
-sh quadrant/scripts/new-report.sh my-report
+sh quadrant/scripts/new-report.sh my-report yourname/my-report   # fills in repo and site URLs
 cd my-report
 make wasm api site            # needs Rust (wasm32 target), wasm-pack, Quarto ≥ 1.6
 python3 scripts/serve.py 8790 _site

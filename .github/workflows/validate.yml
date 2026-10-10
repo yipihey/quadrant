@@ -35,7 +35,7 @@ jobs:
         with:
           version: 1.10.19
       - name: Create a report from the template
-        run: sh scripts/new-report.sh ../demo
+        run: sh scripts/new-report.sh ../demo ${{ github.repository }}
       - name: Test, build and document the core
         working-directory: ../demo
         run: |
